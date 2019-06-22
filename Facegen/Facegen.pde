@@ -1,4 +1,8 @@
+/*
+    Inspired by a post on reddit
+*/
 
+import java.util.Iterator;
 
 Face face;
 
@@ -8,6 +12,7 @@ void setup() {
     background(0);
     
     face = new Face(width/2, height/2, 400, 400);
+    face.addFeature(new Eye(0, 0, 50, 50, face));
     
     frameRate(60);
 }

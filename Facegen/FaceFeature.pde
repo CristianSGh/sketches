@@ -13,7 +13,7 @@ abstract class FaceFeature {
         size = new PVector(sx, sy);
         
         isFill = true;
-        fillCol = color(0);
+        fillCol = color(0, 255, 191);
         strokeCol = color(0, 255, 191);
     }
     
