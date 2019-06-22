@@ -6,6 +6,10 @@ class Eye extends FaceFeature {
         this.anchor = anchor;
     }
     
+    public Eye(FeatureDescription desc, ArrayList<FaceFeature> features) {
+        super(desc, features);
+    }
+    
     @Override
     public void draw() {
         

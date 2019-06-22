@@ -13,6 +13,15 @@ class Mouth extends FaceFeature {
         isFill = false;
     }
     
+    public Mouth(FeatureDescription desc, ArrayList<FaceFeature> features, float start, float stop) {
+        
+        super(desc, features);
+        
+        this.start = radians(start);
+        this.stop = radians(stop);
+        isFill = false;
+    }
+    
     @Override
     public void draw() {
         

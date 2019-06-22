@@ -16,6 +16,9 @@ void setup() {
     face.addFeature(new Eye(100, -50, 50, 50, 0, face));
     face.addFeature(new Mouth(0, 0, 350, 350, 0, 0, 180, face));
     
+    FeatureDescription eyeDesc = new FeatureDescription(0, 0, 50, 50, 0, 0);
+    face.addFeature(new Eye(eyeDesc, face.getFeatures()));
+    
     frameRate(60);
 }
 

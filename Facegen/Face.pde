@@ -9,6 +9,7 @@ class Face extends FaceFeature {
         isFill = false;
         
         features = new ArrayList<FaceFeature>();
+        features.add(this);
     }
     
     @Override
@@ -20,6 +21,13 @@ class Face extends FaceFeature {
         ellipse(transform.getPosition().x, transform.getPosition().y, transform.getScale().x, transform.getScale().y);
         
         Iterator it = features.iterator();
+        
+        /* skip over 1st element( the Face ) 
+           -!!- causes infinite call to Face.draw() otherwise
+           TODO: Fix it
+        */
+        it.next();
+        
         while(it.hasNext()) {
             FaceFeature feature = (FaceFeature) it.next();
             feature.draw();
@@ -30,4 +38,6 @@ class Face extends FaceFeature {
     public void addFeature(FaceFeature feature) {
         features.add(feature);
     }
+    
+    public ArrayList<FaceFeature> getFeatures() { return features; }
 }

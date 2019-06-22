@@ -9,7 +9,7 @@ class FeatureDescription {
     
     private int anchorIndex;
     
-    // Use randomly generated features,
+    // Use randomly generated features
     public FeatureDescription(float vx, float vy, float vsx, float vsy, float rv, int ai,
                               boolean genPosition, boolean genScale, boolean genRotation) {
         
@@ -18,10 +18,17 @@ class FeatureDescription {
         rotationVariance = rv;
         anchorIndex = ai;
         
-        getDescription(genPosition, genScale, genRotation);
+        getRandomDescription(genPosition, genScale, genRotation);
     }
     
-    private void getDescription(boolean genPosition, boolean genScale, boolean genRotation) {
+    // Use fixed values
+    public FeatureDescription(float x, float y, float sx, float sy, float rot, int ai) {
+        
+        transform = new Transform(x, y, sx, sy, rot);
+        anchorIndex = ai;
+    }
+    
+    private void getRandomDescription(boolean genPosition, boolean genScale, boolean genRotation) {
         
         float x = 0, y = 0;
         float sx = 1, sy = 1;

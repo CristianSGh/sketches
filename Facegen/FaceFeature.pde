@@ -19,6 +19,17 @@ abstract class FaceFeature {
         strokeCol = color(0, 255, 191);
     }
     
+    public FaceFeature(FeatureDescription desc, ArrayList<FaceFeature> features) {
+        
+        transform = desc.getTransform();
+        anchor = features.get(desc.getAnchorIndex());
+        
+        isFill = true;
+        fillCol = color(0, 255, 191);
+        isStroke = true;
+        strokeCol = color(0, 255, 191);
+    }
+    
     public void draw() {
         
         if(isFill) {
