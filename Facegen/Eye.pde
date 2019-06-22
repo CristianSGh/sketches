@@ -1,11 +1,11 @@
 class Eye extends FaceFeature {
 
-    private FaceFeature face;
+    //private FaceFeature face;
     
     public Eye(float x, float y, float sx, float sy, FaceFeature anchor) {
         super(x, y, sx, sy);
         
-        face = anchor;
+        this.anchor = anchor;
     }
     
     public void draw() {
@@ -20,7 +20,7 @@ class Eye extends FaceFeature {
         stroke(strokeCol);
         
         pushMatrix();
-        translate(face.position.x, face.position.y);
+        translate(anchor.position.x, anchor.position.y);
         ellipse(position.x, position.y, size.x, size.y);
         popMatrix();
     }

@@ -2,6 +2,7 @@ abstract class FaceFeature {
 
     protected PVector position;
     protected PVector size;
+    protected FaceFeature anchor;
     
     protected boolean isFill;
     protected color fillCol;
@@ -11,6 +12,7 @@ abstract class FaceFeature {
         
         position = new PVector(x, y);
         size = new PVector(sx, sy);
+        anchor = null;
         
         isFill = true;
         fillCol = color(0, 255, 191);
