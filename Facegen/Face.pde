@@ -2,28 +2,22 @@ class Face extends FaceFeature {
     
     private ArrayList<FaceFeature> features;
     
-    public Face(float x, float y, float sx, float sy) {
+    public Face(float x, float y, float sx, float sy, float rot) {
         
-        super(x, y, sx, sy);
+        super(x, y, sx, sy, rot);
         
         isFill = false;
         
         features = new ArrayList<FaceFeature>();
     }
     
+    @Override
     public void draw() {
         
-        if(isFill) {
-            fill(fillCol);
-        } else {
-            noFill();
-        }
-        
-        strokeWeight(2);
-        stroke(strokeCol);
+        super.draw();
         
         pushMatrix();
-        ellipse(position.x, position.y, size.x, size.y);
+        ellipse(transform.getPosition().x, transform.getPosition().y, transform.getScale().x, transform.getScale().y);
         
         Iterator it = features.iterator();
         while(it.hasNext()) {

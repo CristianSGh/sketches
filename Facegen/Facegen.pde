@@ -11,10 +11,10 @@ void setup() {
     size(1000, 1000, P2D);
     background(0);
     
-    face = new Face(width/2, height/2, 500, 500);
-    face.addFeature(new Eye(-100, -50, 50, 50, face));
-    face.addFeature(new Eye(100, -50, 50, 50, face));
-    face.addFeature(new Mouth(0, 0, 350, 350, 0, 180, face));
+    face = new Face(width/2, height/2, 500, 500, 0);
+    face.addFeature(new Eye(-100, -50, 50, 50, 0, face));
+    face.addFeature(new Eye(100, -50, 50, 50, 0, face));
+    face.addFeature(new Mouth(0, 0, 350, 350, 0, 0, 180, face));
     
     frameRate(60);
 }

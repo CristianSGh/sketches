@@ -3,9 +3,9 @@ class Mouth extends FaceFeature {
     private float start; // start angle in radians
     private float stop; // stop angle in radians
     
-    public Mouth(float x, float y, float sx, float sy, float start, float stop, FaceFeature anchor) {
+    public Mouth(float x, float y, float sx, float sy, float rot, float start, float stop, FaceFeature anchor) {
         
-        super(x, y, sx, sy);
+        super(x, y, sx, sy, rot);
         
         this.anchor = anchor;
         this.start = radians(start);
@@ -13,20 +13,14 @@ class Mouth extends FaceFeature {
         isFill = false;
     }
     
+    @Override
     public void draw() {
         
-        if(isFill) {
-            fill(fillCol);
-        } else {
-            noFill();
-        }
-        
-        strokeWeight(2);
-        stroke(strokeCol);
+        super.draw();
         
         pushMatrix();
-        translate(anchor.position.x, anchor.position.y);
-        arc(position.x, position.y, size.x, size.y, start, stop);
+        translate(anchor.getTransform().getPosition().x, anchor.getTransform().getPosition().y);
+        arc(transform.getPosition().x, transform.getPosition().y, transform.getScale().x, transform.getScale().y, start, stop);
         popMatrix();
     }
     
